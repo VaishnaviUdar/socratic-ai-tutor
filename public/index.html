@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A tutor that helps you find your own way through a problem." />
+    <title>Socratic — A Tutor That Won’t Give You the Answer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="Socratic home">
+          <span class="brand-icon" aria-hidden="true">💡</span>
+          <span class="brand-copy">
+            <strong>Socratic</strong>
+            <span>Don’t give me the answer. Help me find it.</span>
+          </span>
+        </a>
+      </header>
+
+      <main class="main-content">
+        <section class="intro">
+          <p class="eyebrow">A tutor that won’t give you the answer</p>
+          <h1>Find the thinking.<br /><span>Find the way forward.</span></h1>
+          <p class="intro-copy">Share a problem and what you’ve tried. Get a thoughtful nudge, not a copied solution.</p>
+        </section>
+
+        <section class="adaptive-guide" aria-label="Adaptive assistance levels">
+          <div class="adaptive-title">
+            <span class="adaptive-icon" aria-hidden="true">✦</span>
+            <div>
+              <strong>Adaptive assistance</strong>
+              <span>More help only when you need it.</span>
+            </div>
+          </div>
+          <ol class="level-list">
+            <li><span>01</span><span>Gentle question</span></li>
+            <li><span>02</span><span>Clearer hint</span></li>
+            <li><span>03</span><span>Stronger guidance</span></li>
+          </ol>
+        </section>
+
+        <section class="work-card" aria-label="Work through a problem">
+          <div class="field-block">
+            <label for="question"><span class="field-number">01</span> Problem / Question</label>
+            <textarea id="question" rows="4" placeholder="What are you working on? Paste a problem, equation, proof, or question…"></textarea>
+          </div>
+
+          <div class="field-divider"></div>
+
+          <div class="field-block">
+            <label for="attempt"><span class="field-number">02</span> My Work</label>
+            <textarea id="attempt" rows="7" placeholder="Show your steps, approach, code, or where you got stuck…"></textarea>
+            <p class="field-help">It’s okay to be unsure. Your attempt helps Socratic understand how you’re thinking.</p>
+
+            <div class="image-upload">
+              <input id="image-upload" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+              <div id="image-empty" class="image-empty">
+                <span class="upload-symbol" aria-hidden="true">↥</span>
+                <span><strong>Add a handwritten page or diagram</strong><small>PNG, JPG, or WebP · up to 3 MB</small></span>
+                <label class="upload-button" for="image-upload">Choose image</label>
+              </div>
+              <div id="image-preview-wrapper" class="image-preview-wrapper hidden">
+                <img id="image-preview" alt="Preview of your handwritten work" />
+                <span class="image-meta"><strong id="image-filename"></strong><button id="remove-image" type="button">Remove</button></span>
+              </div>
+            </div>
+          </div>
+
+          <button id="submit-button" class="primary-button" type="button">
+            <span class="button-icon" aria-hidden="true">💡</span>
+            <span class="button-text">Help Me Think</span>
+            <span class="button-arrow" aria-hidden="true">→</span>
+          </button>
+          <div id="status-banner" class="status-banner hidden" role="status" aria-live="polite"></div>
+        </section>
+
+        <section id="empty-state" class="empty-state" aria-live="polite">
+          <span class="empty-symbol" aria-hidden="true">✳</span>
+          <p>Your thinking space is ready.</p>
+          <span>Start with a problem and the work you’ve done so far.</span>
+        </section>
+
+        <section id="result-card" class="result-card hidden" aria-live="polite">
+          <div class="result-topline">
+            <div>
+              <p class="eyebrow">Your guidance</p>
+              <h2>Let’s think it through.</h2>
+            </div>
+            <span id="hint-indicator" class="hint-indicator">Level 1 of 3</span>
+          </div>
+          <div class="level-track" aria-hidden="true"><span id="level-progress"></span></div>
+          <div id="result-content" class="result-content"></div>
+          <button id="stronger-hint-button" class="stronger-button hidden" type="button">
+            <span aria-hidden="true">✦</span><span class="button-text">I’m stuck — give me a clearer hint</span>
+          </button>
+        </section>
+
+        <section id="retry-panel" class="retry-panel hidden" aria-label="Try again">
+          <label for="new-attempt"><span class="field-number">✍</span> Try Again</label>
+          <textarea id="new-attempt" rows="5" placeholder="What do you think now? Update your work here…"></textarea>
+          <button id="recheck-button" class="check-button" type="button">
+            <span aria-hidden="true">↻</span><span class="button-text">Check My Thinking</span>
+          </button>
+        </section>
+
+      </main>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
